@@ -5,16 +5,24 @@ Juan Sebastian Martinez Garcia
 1.Desarrollar un algoritmo que imprima de manera ascendente los valores (todos del mismo tipo) de un diccionario.
 
         def imprimir_valores_ascendentes(diccionario):
-            # Obtener los valores del diccionario y ordenarlos
-            valores_ordenados = sorted(diccionario.values())
+            # Convertir los valores a una lista
+            valores = list(diccionario.values())
+            
+            # Ordenar la lista con el método de burbuja (básico)
+            n = len(valores)
+            for i in range(n):
+                for j in range(0, n-i-1):
+                    if valores[j] > valores[j+1]:
+                        # Intercambiar elementos
+                        valores[j], valores[j+1] = valores[j+1], valores[j]
             
             # Imprimir los valores ordenados
-            for valor in valores_ordenados:
+            print("Valores ordenados de manera ascendente:")
+            for valor in valores:
                 print(valor)
         
-        # Ejemplo de uso
-        mi_diccionario = {'a': 5, 'b': 2, 'c': 8, 'd': 1}
-        print("Valores ordenados de manera ascendente:")
+        # Ejemplo
+        mi_diccionario = {'a': 4, 'b': 2, 'c': 3, 'd': 1}
         imprimir_valores_ascendentes(mi_diccionario)
 
 2.Desarrollar una función que reciba dos diccionarios como parámetros y los mezcle, es decir, que se construya un nuevo diccionario con las llaves de los dos diccionarios; si hay una clave repetida en ambos diccionarios, se debe asignar el valor que tenga la clave en el primer diccionario.
